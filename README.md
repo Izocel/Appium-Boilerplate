@@ -3,6 +3,7 @@
 Project and documentation based on
 
 - https://webdriver.io/docs/gettingstarted/
+- https://appium.io/docs/en/latest/
 - https://github.com/webdriverio/appium-boilerplate/
 
 Boilerplate project to run Appium tests together with WebdriverIO for:
