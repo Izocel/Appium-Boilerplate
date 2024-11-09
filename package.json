@@ -6,12 +6,13 @@
   "description": "An Appium WebDriverIO setup for hybrid apps (web, mobile)",
   "scripts": {
     "clean-npm": "npm cache clean --force && rm -rf node-modules && rm -rf package-lock.json",
+    "pre-clean": "rm -rf allure-report/ && rm -rf logs/",
     "wdio:install": "npx @wdio/cli init",
     "appium:install": "npx appium-installer",
     "appium:start": "npx appium",
-    "android": "npx wdio configs/myApp/wdio.android.app.conf.ts",
-    "ios": "npx wdio configs/myApp/wdio.ios.app.conf.ts",
-    "allure:open": "npx allure-commandline open"
+    "android": "npm run pre-clean && npx wdio configs/myApp/wdio.android.app.conf.ts",
+    "ios": "npm run pre-clean && npx wdio configs/myApp/wdio.ios.app.conf.ts",
+    "allure:open": "npx allure open"
   },
   "dependencies": {
     "appium-wdio": "file:"

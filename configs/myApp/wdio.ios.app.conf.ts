@@ -45,7 +45,7 @@ export const config: WebdriverIO.Config = {
 
     return new Promise<void>((resolve, reject) => {
       const generationTimeout = setTimeout(() => reject(reportError), 5000);
-      generation.on("exit", function (exitCode) {
+      generation.on("exit", async function (exitCode: number) {
         clearTimeout(generationTimeout);
 
         if (exitCode !== 0) {
@@ -53,7 +53,7 @@ export const config: WebdriverIO.Config = {
         }
 
         console.log("Allure report successfully generated");
-        allure(["open"]);
+        await allure(["open"]);
         resolve();
       });
     });
