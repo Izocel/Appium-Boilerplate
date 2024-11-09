@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "visualstudioexptteam.vscodeintellicode",
+    "gruntfuggly.todo-tree",
+    "xiaohuohumax.format-files-by-ignores"
+  ]
+}

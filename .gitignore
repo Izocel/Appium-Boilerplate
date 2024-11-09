@@ -1,0 +1,9 @@
+node_modules/
+allure-report/
+
+*.apk
+*.ipa
+*.log
+
+package-lock.json
+apps/**/reports/*.json
