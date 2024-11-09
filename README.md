@@ -47,11 +47,11 @@ npm install
 >
 > Use the [appium-installer](https://github.com/AppiumTestDistribution/appium-installer) package.
 >
-> > Setup Appium on your local machine. (install appium server)
-> >
-> > If you've already a react-native environement setup skip this part.
-> >
-> > This will also help you configure Android Emulators/ iOS Simulators. (install environement)
+> Setup Appium on your local machine. (install appium server)
+>
+> If you've already a react-native environement setup (recommended) skip next tip.
+>
+> Configure Android Emulators/ iOS Simulators. (install environement)
 
 3. Import the application files (`.apk` / `.ipa`) inside `apps/myApp/` respective folders.
 
