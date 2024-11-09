@@ -43,15 +43,13 @@ npm install
 ```
 
 > [!TIP]
-> You don't need Appium installed on you local machine When running test in a cloud.
+> When running test in a cloud, you don't need Appium installed on you local machine.
 >
-> Use the [appium-installer](https://github.com/AppiumTestDistribution/appium-installer) package.
+> Use the [appium-installer](https://github.com/AppiumTestDistribution/appium-installer) package:
 >
-> Setup Appium on your local machine. (install appium server)
->
-> If you've already a react-native environement setup (recommended) skip next tip.
->
-> Configure Android Emulators/ iOS Simulators. (install environement)
+> - Setup Appium on your local machine. `install appium server`
+> - If you've already a react-native environement setup (recommended) skip next step.
+> - Configure Android Emulators/ iOS Simulators. `install environements`
 
 3. Import the application files (`.apk` / `.ipa`) inside `apps/myApp/` respective folders.
 
