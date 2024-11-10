@@ -1,32 +1,34 @@
 import allure from "allure-commandline";
 import { join } from "node:path";
-import { config as baseConfig } from "../wdio.ios.app.conf.ts";
+import { config as baseConfig } from "../../../configs/wdio.ios.app.conf.ts";
 
-const baseDir = join(process.cwd(), "apps", "myApp", "android");
+const appDir = join(process.cwd(), "apps", "myApp");
+const baseDir = join(appDir, "android");
+const reportDir = join(baseDir, "reports");
+
+const app = join(baseDir, "android.wdio.native.app.v1.0.8.apk");
+const specs = [join(appDir, "tests", "**", "app*.spec.ts")];
 
 export const config: WebdriverIO.Config = {
   ...baseConfig,
-  specs: ["../../tests/myApp/specs/**/app*.spec.ts"],
-
+  specs,
   capabilities: [
     {
       platformName: "Android",
+      "appium:app": app,
       "wdio:maxInstances": 1,
       "appium:deviceName": "R5CW10PPKLL",
-      "appium:orientation": "PORTRAIT",
       "appium:automationName": "UiAutomator2",
-      "appium:app": join(baseDir, "android.wdio.native.app.v1.0.8.apk"),
       "appium:appWaitActivity": "com.wdiodemoapp.MainActivity",
       "appium:newCommandTimeout": 240,
     },
   ],
 
   reporters: [
-    "spec",
     [
       "allure",
       {
-        outputDir: join(baseDir, "reports"),
+        outputDir: reportDir,
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: false,
       },
@@ -35,11 +37,7 @@ export const config: WebdriverIO.Config = {
 
   onComplete: function () {
     const reportError = new Error("Could not generate Allure report");
-    const generation = allure([
-      "generate",
-      join(baseDir, "reports"),
-      "--clean",
-    ]);
+    const generation = allure(["generate", reportDir, "--clean"]);
 
     return new Promise<void>((resolve, reject) => {
       const generationTimeout = setTimeout(() => reject(reportError), 5000);

@@ -9,8 +9,8 @@
     "appium:install": "npx appium-installer",
     "appium:start": "npx appium",
     "test:post": "rm -rf allure-report/ && rm -rf logs/",
-    "test:android": "npm run test:post && npx wdio configs/myApp/wdio.android.app.conf.ts",
-    "test:ios": "npm run test:post && npx wdio configs/myApp/wdio.ios.app.conf.ts",
+    "test:android": "npm run test:post && npx wdio apps/myApp/android/wdio.app.conf.ts",
+    "test:ios": "npm run test:post && npx wdio apps/myApp/ios/wdio.app.conf.ts",
     "allure:open": "npx allure open"
   },
   "dependencies": {

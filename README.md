@@ -52,10 +52,10 @@ npm install
 > - If you've already a react-native environement setup (recommended) skip next step.
 > - Configure Android Emulators/ iOS Simulators. `install environements`
 
-3. Import the application files (`.apk` / `.ipa`) inside `apps/myApp/` respective folders.
+3. Import the application files (`.apk` / `.ipa`) inside `apps/myApp/` respective folders (clone the folder for new app).
 
 4. Adjust the configuration file(s) for (`Android` / `iOS`) regarding the simulator or real device you are using.
 
 5. Running tests locally
-   - **Android App:** `npm run android`
-   - **iOS App:** `npm run ios`
+   - **Android App:** `npm run test:android`
+   - **iOS App:** `npm run test:ios`

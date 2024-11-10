@@ -109,7 +109,7 @@ export const config: Options.Testrunner = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec"],
+  reporters: ["dot"],
   // Options to be passed to Mocha.
   mochaOpts: {
     ui: "bdd",
@@ -119,16 +119,4 @@ export const config: Options.Testrunner = {
      */
     timeout: 3 * 60 * 1000, // 3min
   },
-  //
-  // =====
-  // Hooks
-  // =====
-  // WebdriverIO provides several hooks you can use to interfere with the test process in order to enhance
-  // it and to build services around it. You can either apply a single function or an array of
-  // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
-  // resolved to continue.
-  //
-  /**
-   * NOTE: No Hooks are used in this project, but feel free to add them if you need them.
-   */
 };
