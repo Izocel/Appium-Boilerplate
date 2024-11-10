@@ -5,7 +5,7 @@
   "author": "RVÐ-Projects",
   "description": "An Appium WebDriverIO setup for hybrid apps (web, mobile)",
   "scripts": {
-    "clean-npm": "npm cache clean --force && rm -rf node-modules && rm -rf package-lock.json",
+    "clean-npm": "rm -rf node-modules && rm -rf package-lock.json",
     "pre-clean": "rm -rf allure-report/ && rm -rf logs/",
     "wdio:install": "npx @wdio/cli init",
     "appium:install": "npx appium-installer",
