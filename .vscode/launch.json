@@ -1,20 +1,34 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Run Android Tests",
-            "command": "npm run android",
-            "request": "launch",
-            "type": "node-terminal"
-        },
-        {
-            "name": "Run IOS Tests",
-            "command": "npm run ios",
-            "request": "launch",
-            "type": "node-terminal"
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Selected WDIO",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "autoAttachChildProcesses": true,
+      "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+      "console": "integratedTerminal",
+      "args": [
+        "${file}",
+      ]
+    },
+    {
+      "name": "Run Selected Spec",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "autoAttachChildProcesses": true,
+      "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+      "console": "integratedTerminal",
+      "args": [
+        "${workspaceFolder}/apps/viridem-native/android/wdio.app.conf.ts",
+        "--spec",
+        "${file}"
+      ]
+    },
+  ]
 }
