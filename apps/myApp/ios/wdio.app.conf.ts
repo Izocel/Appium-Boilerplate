@@ -37,21 +37,56 @@ export const config: WebdriverIO.Config = {
   ],
 
   onComplete: function () {
-    const reportError = new Error("Could not generate Allure report");
-    const generation = allure(["generate", reportDir, "--clean"]);
+    const openError = new Error("Could not open Allure report");
+
+    async function tryOpenReport(retries: number, sleepMs: number = 0) {
+      await new Promise((resolve) => setTimeout(resolve, sleepMs));
+
+      return new Promise<void>((resolve, reject) => {
+        if (retries-- <= 0) {
+          return reject(openError);
+        }
+
+        const open = allure(["open"]);
+        const openTimeout = setTimeout(() => reject(openError), 5000);
+
+        open.on("exit", async function (openExitCode: number) {
+          clearTimeout(openTimeout);
+
+          if (openExitCode === 0) {
+            console.info("Allure report opened successfully");
+            return resolve();
+          }
+
+          try {
+            console.warn("Retrying to open Allure report...");
+            return await tryOpenReport(retries, 2000);
+          } catch (error) {
+            return reject(openError);
+          }
+        });
+      });
+    }
 
     return new Promise<void>((resolve, reject) => {
       const generationTimeout = setTimeout(() => reject(reportError), 5000);
+      const reportError = new Error("Could not generate Allure report");
+      const generation = allure([
+        "generate",
+        "--clean",
+        "--single-file",
+        reportDir,
+      ]);
+
       generation.on("exit", async function (exitCode: number) {
         clearTimeout(generationTimeout);
 
-        if (exitCode !== 0) {
-          return reject(reportError);
+        if (exitCode === 0) {
+          console.info("Allure report successfully generated");
+          return await tryOpenReport(3);
         }
 
-        console.log("Allure report successfully generated");
-        await allure(["open"]);
-        resolve();
+        return reject(reportError);
       });
     });
   },

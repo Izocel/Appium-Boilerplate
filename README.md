@@ -5,6 +5,8 @@ Project and documentation based on
 - https://webdriver.io/docs/gettingstarted/
 - https://appium.io/docs/en/latest/
 - https://github.com/webdriverio/appium-boilerplate/
+- https://allurereport.org/docs/features-overview/
+- https://github.com/appium/appium-inspector (usefull for dev can target specifics device and tests)
 
 Boilerplate project to run Appium tests together with WebdriverIO for:
 

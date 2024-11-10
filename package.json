@@ -51,6 +51,8 @@
     "appium-windows-driver": "^3.0.2",
     "appium-xcuitest-driver": "^7.28.3",
     "chai": "^5.1.2",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
     "eslint-plugin-wdio": "^9.2.11",
     "jest": "^29.7.0",
     "ts-node": "^10.9.2",
