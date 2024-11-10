@@ -5,13 +5,12 @@
   "author": "RVÐ-Projects",
   "description": "An Appium WebDriverIO setup for hybrid apps (web, mobile)",
   "scripts": {
-    "clean-npm": "rm -rf node-modules && rm -rf package-lock.json",
-    "pre-clean": "rm -rf allure-report/ && rm -rf logs/",
     "wdio:install": "npx @wdio/cli init",
     "appium:install": "npx appium-installer",
     "appium:start": "npx appium",
-    "android": "npm run pre-clean && npx wdio configs/myApp/wdio.android.app.conf.ts",
-    "ios": "npm run pre-clean && npx wdio configs/myApp/wdio.ios.app.conf.ts",
+    "test:post": "rm -rf allure-report/ && rm -rf logs/",
+    "test:android": "npm run test:post && npx wdio configs/myApp/wdio.android.app.conf.ts",
+    "test:ios": "npm run test:post && npx wdio configs/myApp/wdio.ios.app.conf.ts",
     "allure:open": "npx allure open"
   },
   "dependencies": {
