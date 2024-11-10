@@ -29,7 +29,7 @@
         "noFallthroughCasesInSwitch": true
     },
     "include": [
-        "./config/**/*.ts",
-        "./tests/**/*.ts"
+        "configs/**/*.ts",
+        "apps/**/tests/**/*.ts"
     ]
 }
