@@ -1,7 +1,7 @@
 {
   "license": "ISC",
   "version": "1.0.0",
-  "name": "appium-wdio",
+  "name": "appium-boiler",
   "author": "RVÐ-Projects",
   "description": "An Appium WebDriverIO setup for hybrid apps (web, mobile)",
   "scripts": {
@@ -14,7 +14,7 @@
     "allure:open": "npx allure open"
   },
   "dependencies": {
-    "appium-wdio": "file:"
+    "appium-boiler": "file:"
   },
   "devDependencies": {
     "@appium/execute-driver-plugin": "^3.0.36",
