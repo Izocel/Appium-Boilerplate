@@ -1,6 +1,8 @@
 import allure from "allure-commandline";
 import { join } from "path";
 
+export const BAIL_COUNT = 0;
+
 export const APP_DIR = join(process.cwd(), "apps", "WdioDemoApp");
 export const SPECS = [join(APP_DIR, "tests", "**", "app*.spec.ts")];
 export const REPORT_DIR = join(APP_DIR, "reports");
@@ -20,27 +22,26 @@ export const IOS_APP = join(
   "ios.simulator.wdio.native.app.v1.0.8.zip"
 );
 
-export const ANDROID_CAPABILITY = {
-  platformName: "Android",
-  browserName: "chrome",
+export const SHARED_CAPABILITIES = {
   "wdio:maxInstances": 1,
+  "appium:newCommandTimeout": 240,
+};
+
+export const ANDROID_CAPABILITY = {
+  ...SHARED_CAPABILITIES,
+  platformName: "Android",
   "appium:app": ANDROID_APP,
   "appium:deviceName": ANDROID_DEVICE,
   "appium:appWaitActivity": ANDROID_ACTIVITY,
   "appium:automationName": "UiAutomator2",
-  "appium:newCommandTimeout": 240,
-  disableIdLocatorAutocompletion: true,
 };
 
 export const IOS_CAPABILITY = {
+  ...SHARED_CAPABILITIES,
   platformName: "iOS",
-  browserName: "chrome",
-  "wdio:maxInstances": 1,
   "appium:app": IOS_APP,
   "appium:deviceName": IOS_DEVICE,
   "appium:automationName": "XCUITest",
-  "appium:newCommandTimeout": 240,
-  disableIdLocatorAutocompletion: true,
 };
 
 export const ALLURE_REPORTER = [
