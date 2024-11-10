@@ -5,13 +5,13 @@
   "author": "RVÐ-Projects",
   "description": "An Appium WebDriverIO setup for hybrid apps (web, mobile)",
   "scripts": {
-    "wdio:install": "npx @wdio/cli init",
-    "appium:install": "npx appium-installer",
-    "appium:start": "npx appium",
-    "test:post": "rm -rf allure-report/ && rm -rf logs/",
-    "test:android": "npm run test:post && npx wdio apps/myApp/android/wdio.app.conf.ts",
-    "test:ios": "npm run test:post && npx wdio apps/myApp/ios/wdio.app.conf.ts",
-    "allure:open": "npx allure open"
+    "wdio-install": "npx run @wdio/cli init",
+    "appium-install": "npx appium-installer",
+    "appium-start": "npm run test-post && npx appium",
+    "test-post": "rm -rf allure-report/ && rm -rf logs/",
+    "test-android": "npm run test-post && npx wdio configs/wdio.appium.android.conf.ts",
+    "test-ios": "npm run test-post && npx wdio configs/wdio.appium.ios.conf.ts",
+    "allure-open": "npx allure open"
   },
   "dependencies": {
     "appium-boiler": "file:"

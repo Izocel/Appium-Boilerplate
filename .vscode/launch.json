@@ -9,7 +9,7 @@
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "autoAttachChildProcesses": true,
+      "autoAttachChildProcesses": false,
       "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
       "console": "integratedTerminal",
       "args": [
@@ -17,15 +17,29 @@
       ]
     },
     {
-      "name": "Run Selected Spec",
+      "name": "Android Run Selected Spec",
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "autoAttachChildProcesses": true,
+      "autoAttachChildProcesses": false,
       "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
       "console": "integratedTerminal",
       "args": [
-        "${workspaceFolder}/apps/viridem-native/android/wdio.app.conf.ts",
+        "${workspaceFolder}/configs/wdio.appium.android.conf.ts",
+        "--spec",
+        "${file}"
+      ]
+    },
+    {
+      "name": "IOS Run Selected Spec",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "autoAttachChildProcesses": false,
+      "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+      "console": "integratedTerminal",
+      "args": [
+        "${workspaceFolder}/configs/wdio.appium.ios.conf.ts",
         "--spec",
         "${file}"
       ]

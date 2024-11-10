@@ -6,4 +6,6 @@ allure-report/
 *.log
 
 package-lock.json
+
+configs/configs.ts
 apps/**/reports/*.json
